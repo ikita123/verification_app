@@ -1,0 +1,28 @@
+<div class="card">
+  <h2>Registration</h2>
+  <form novalidate [formGroup]="registrationForm">
+    <label>Name:</label>
+    <input type="text" formControlName="name" placeholder="Enter your name" >
+    <div *ngIf="isSubmitted && f['name'].errors" class="invalid-feedback2">
+      <div *ngIf="f['name'].errors['required']" class="error-message">{{nameRequired}}</div>
+    </div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" placeholder="Enter your email" >
+    <div *ngIf="isSubmitted && f['email'].errors" class="invalid-feedback2">
+      <div *ngIf="f['email'].errors['required']" class="error-message">{{emailRequired}}</div>
+      <div *ngIf="f['email'].errors['pattern']" class="text-danger">{{invalidEmail}}</div>
+    </div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" placeholder="Enter your password">
+    <div *ngIf="isSubmitted && f['password'].errors" class="invalid-feedback2">
+      <div *ngIf="f['password'].errors['required']" class="error-message">{{passwordRequired}}</div>
+    </div>
+    <label>Phone:</label>
+    <input type="tel" formControlName="phone">
+    <div *ngIf="isSubmitted && f['phone'].errors" class="invalid-feedback2" placeholder="Enter your phone number" >
+      <div *ngIf="f['phone'].errors['required']" class="error-message">{{phoneNumberRequired}}</div>
+    </div>
+
+    <button type="submit" (click)="register()">Submit</button>
+  </form>
+</div>

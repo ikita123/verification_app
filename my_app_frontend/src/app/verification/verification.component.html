@@ -1,0 +1,17 @@
+
+
+
+
+<div class="card">
+  <h2> Otp  Verification</h2>
+  <form novalidate [formGroup]="verificationForm">
+    
+    <label>Code:</label>
+    <input type="text" formControlName="code" placeholder="Enter your verification code">
+    <div *ngIf="isSubmitted && f['code'].errors" class="invalid-feedback2">
+      <div *ngIf="f['code'].errors['required']" class="error-message">{{codeRequired}}</div>
+    </div>
+    
+    <button type="submit" (click)="submitVerify()">Submit</button>
+  </form>
+</div>
